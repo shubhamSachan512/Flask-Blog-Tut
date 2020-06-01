@@ -1,0 +1,78 @@
+ {% extends "layout.html" %}
+ {% block body %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <script>
+      var messages = {{ messages | safe }};
+      for (var i=0; i<messages.length; i++) {
+        alert(messages[i]);
+      }
+    </script>
+
+  {% endif %}
+{% endwith %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{{  url_for('static', filename='img/dash2-bg.jpg',) }}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Admin Panel</h1>
+            <span class="subheading">Manage ypur posts</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">   
+
+<!-- <h2>Basic Action</h2>
+<a href="/edit/0"><button class="btn btn-primary">Add New Post</button></a>
+<hr> -->
+        
+<h2>Upload a file</h2>
+<form action="/uploader" method="POST" enctype="multipart/form-data"> 
+<!-- <label for="file1">Select a file:</label> -->
+<input type="file" name="file1">
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+  <hr>
+<h2>Edit posts</h2>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Sno</th>
+        <th>Post Title</th>
+        <th>Posted By</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for post_dash in posts %}
+        <tr>
+          <td>{{post_dash.sno}}</td>
+          <td>{{post_dash.title}}</td>
+          <td>{{post_dash.posted_by}}</td>
+          <td><a href="/edit/{{post_dash.sno}}"><button class="btn btn-primary">Edit</button></a></td>
+          <td><a href="/delete/{{post_dash.sno}}"><button class="btn btn-primary">Delete</button></a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+ 
+
+    </div>
+  </div>
+
+  {% endblock %}
+
+  
