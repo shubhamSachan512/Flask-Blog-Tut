@@ -1,0 +1,23 @@
+{
+  "params":
+  {
+    "local_server": "True",
+    "local_uri": "mysql+pymysql://root:@localhost/blogdb",
+    "prod_server": "False",
+    "prod_uri": "mysql+pymysql://root:@localhost/blogdb",
+    "fb_url": "http://facebook.com",
+    "tw_url": "abc",
+    "git_url": "git",
+    "blog_name": "Blogging@home",
+    "tag_line": "Bloggs of the world",
+    "email_userId": "shubham.eaton@gmail.com",
+    "email_password": "Eaton@123",
+    "about_text": "from config - about text",
+    "no_of_post": 2,
+    "login_img": "admin-img.png",
+    "admin_user": "shubham",
+    "admin_pwd": "admin",
+    "upload_location": "C:\\Users\\E0559137\\PycharmProjects\\Flask_tut\\static\\filesfromUploader"
+  }
+
+}
